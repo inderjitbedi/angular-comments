@@ -1,13 +1,22 @@
 <section>
     <div class="comment-box">
+
+        <!-- user sees previous and new comments added on the page here  -->
         <div class="comment" *ngFor="let comment of comments; let index = index;">
             <div>
+                <!-- comment owner name -->
                 <h4>{{comment.commentOwner}}</h4>
+                <!-- the actual comment  -->
                 <p> {{comment.comment}}</p>
+
+                <!-- like count -->
                 <span>
                     {{comment.likes ? comment.likes + ' Like' + (comment.likes > 1?'s':''):''}}
                 </span>
             </div>
+
+            <!-- Since user and like other comments and his/her comments, hence hiding the button -->
+            <!-- Also user can un/like the comments of other users  -->
             <button *ngIf="currentUser.id !== comment.commentOwnerId" [ngClass]="{'liked-comment': comment.likedByYou}"
                 (click)="likeComment(index)">
                 {{((comment.likedByYou?'un':'' )+ 'like') | titlecase}}
@@ -15,4 +24,6 @@
         </div>
     </div>
 </section>
+
+<!-- the add comment selector that will be added at bottom any page of the application or we can rather say at the bottom of the parent component-->
 <app-add-comment (commented)="newCommentAdded($event)"></app-add-comment>
