@@ -1,0 +1,15 @@
+<section>
+    <form [formGroup]="addCommentForm" (ngSubmit)="postComment()">
+        <textarea formControlName="comment" autofocus placeholder="Enter comment here..."></textarea>
+        <div class="info-messages">
+            <p class="error-text"
+                *ngIf="addCommentForm.get('comment').errors?.maxlength && (addCommentForm.get('comment').dirty || addCommentForm.get('comment').touched || formSubmitted)">
+                Only 256 characters are allowed.</p>
+            <p
+                *ngIf="!addCommentForm.get('comment').errors?.required && !addCommentForm.get('comment').errors?.maxlength">
+                {{ (256 - addCommentForm.get('comment').value?.length)+' character'+((256 - addCommentForm.get('comment').value?.length > 1)?'s ':' ')+'left.' }}
+            </p>
+        </div>
+        <button type="submit" [disabled]="addCommentForm.invalid">Add Comment</button>
+    </form>
+</section>

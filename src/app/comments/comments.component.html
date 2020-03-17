@@ -1,0 +1,18 @@
+<section>
+    <div class="comment-box">
+        <div class="comment" *ngFor="let comment of comments; let index = index;">
+            <div>
+                <h4>{{comment.commentOwner}}</h4>
+                <p> {{comment.comment}}</p>
+                <span>
+                    {{comment.likes ? comment.likes + ' Like' + (comment.likes > 1?'s':''):''}}
+                </span>
+            </div>
+            <button *ngIf="currentUser.id !== comment.commentOwnerId" [ngClass]="{'liked-comment': comment.likedByYou}"
+                (click)="likeComment(index)">
+                {{((comment.likedByYou?'un':'' )+ 'like') | titlecase}}
+            </button>
+        </div>
+    </div>
+</section>
+<app-add-comment (commented)="newCommentAdded($event)"></app-add-comment>

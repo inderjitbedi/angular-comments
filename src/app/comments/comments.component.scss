@@ -1,0 +1,58 @@
+
+@import './../../globals/variable.scss';
+body{
+    overflow: hidden;
+}
+app-comments{
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    display: block;
+    height: 100vh;
+    section{
+    height: calc(100% - 150px);
+    overflow: auto;}
+    .comment-box{
+        max-width: 500px;
+        width: 100%;
+    
+  
+    .comment{
+        
+        margin-bottom: 15px;
+        >div{
+            background: $gray-color;
+            margin: 0;
+        padding: 15px;
+        margin-bottom:5px; 
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction:row;
+        align-content: center;
+        justify-content: space-between;
+        border-radius: $border-radius-width;
+        h4{
+            width: 100%;
+            flex: 0 1 100%;
+            margin:0 0 5px;
+        }
+        p{
+            margin: 0;
+            width: 90%;
+        }
+            span{
+                width: 10%;
+                color: #3333338c;
+            }
+        }
+    }
+    button{
+        background: transparent;
+        border: 0;
+        color: $theme-color;
+        cursor: pointer;
+        &:focus{
+            outline: 0;
+        }
+    }
+}
+}

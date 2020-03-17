@@ -1,0 +1,46 @@
+@import './../../globals/variable.scss';
+
+app-add-comment{
+    width: 100%;
+    position: fixed;
+    bottom: 20px;
+    background: $white-color;
+    form{
+        max-width: 500px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .info-messages, button{
+            display: inline-block;
+            
+            vertical-align: bottom;
+        }
+        textarea{
+            min-height: 50px;
+            border-radius: $border-radius-width;
+            width: 100%;
+            flex: 0 1 100%;
+            
+        }
+        button{
+            border: 0;
+            background:$theme-color;
+            color: $white-color;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: $border-radius-width;
+            &:disabled{
+                background:rgba(0, 0, 0, 0.4);
+                cursor: not-allowed;
+            }
+        }
+        .info-messages p{
+            margin: 5px 0 0 0;
+            &.error-text{
+                color: $red-color;
+            }
+        }
+    }
+}
